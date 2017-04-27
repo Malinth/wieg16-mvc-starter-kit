@@ -21,6 +21,9 @@ switch ($path($_SERVER['REQUEST_URI'])) {
 	case '/':
 		$controller->index();
 	break;
+	case '/test':
+	echo "Hello world";
+	break;
 	default:
 		header('HTTP/1.0 404 Not Found');
 		echo 'Page not found';
