@@ -29,4 +29,4 @@ class Controller {
 	public function setBaseDir($baseDir) {
 		$this->baseDir = $baseDir;
 	}
-}
+

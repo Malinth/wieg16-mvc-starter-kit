@@ -45,41 +45,11 @@
 <div class="jumbotron">
 	<div class="container">
 		<h1>Music festivals</h1>
-		<p>A music festival is a festival oriented towards music that is sometimes presented with a theme such as musical genre, nationality, or locality of musicians, or holiday. They are commonly held outdoors, and are often inclusive of other attractions such as food and merchandise vending, performance art, and social activities. Many festivals are annual, or repeat at some other interval. Some, including many rock festivals, are held only once. Some festivals are organized as for-profit concerts and others are benefits for a specific cause. Another type of music festival is the educative type, organized annually in local communities, regionally, or nationally, for the benefit of amateur musicians of all ages and grades of achievement.
+		<p>Information about prices are from the festival's original website.
 		</p>
 		<p><a class="btn btn-primary btn-lg" href="#" role="button">More information &raquo;</a></p>
 	</div>
 </div>
-
-<table class="table table-bordered">
-  <thead class="thead-inverse">
-    <tr>
-      <th>Festival</th>
-      <th>City</th>
-      <th>Price</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-    </tr>
-  </tbody>
-</table>
-<button type="button" class="btn btn-info">Create new</button>
-<button type="button" class="btn btn-info">Update</button>
-<button type="button" class="btn btn-info">Delete</button>
 
 <div class="container">
 	<!-- Example row of columns -->
