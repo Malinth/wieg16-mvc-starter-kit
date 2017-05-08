@@ -1,6 +1,7 @@
 <?php
 use App\Controllers\Controller;
 use App\Database;
+use App\Models\Musicfestival;
 //use App\Models\RecipeModel;
 //use App\Models\UserModel;
 
@@ -14,8 +15,15 @@ require $baseDir . '/vendor/autoload.php';
 $config = require $baseDir. '/config/config.php';
 
 // Normalisera url-sökvägar
+//$path = function($uri) {
+//	return ($uri == "/") ? $uri : rtrim($uri, '/');
+//};
+
 $path = function($uri) {
-	return ($uri == "/") ? $uri : rtrim($uri, '/');
+    $uri = ($uri == "/") ? $uri : rtrim($uri, '/');
+    $uri = explode("?", $uri);
+    $uri = array_shift($uri);
+    return $uri;
 };
 
 $dsn = "mysql:host=".$config['host'].";dbname=".$config['db'].";charset=".$config['charset'];
@@ -64,16 +72,37 @@ Exempel slutar här
 //$controller = new Controller($baseDir);
 $url = $path($_SERVER['REQUEST_URI']);
 switch ($url) {
-	case '/':
+		case '/':
 		//$controller->index();
-		require $baseDir.'/views/index.php';
+		  	$musicFestival = new Musicfestival($db);
+        	$festivals = $musicFestival->getAll();
+			require $baseDir.'/views/index.php';
 	break;
-
-	case '/create':
+		case '/create':
         require $baseDir.'/views/create.php';
+		  break;
+		case '/create-festival': 
+			$musicFestival = new Musicfestival($db);
+        	$musicid = $musicFestival->create([
+            'name' => $_POST['name'],
+            'city' => $_POST['city'],
+            'price' => $_POST['price']
+        ]);
+			header('Location: /?id='.$musicid);
+
+		//$recipeId = $recipeModel->create($_POST);
+		// Dirigera tillbaka till förstasidan efter att vi har sparat.
+		// Vi skickar med id:t på receptet som sparades för att kunna använda oss av det i vår vy.
 	break;
 		case '/update':
         require $baseDir.'/views/update.php';
+	break;
+		case '/delete':
+			$musicFestival = new Musicfestival($db);
+        	$musicid = $musicFestival->delete([
+				'id' => $_GET['id']
+				]);
+			header('Location: /?id='.$musicid);
 	break;
 	default:
 		header('HTTP/1.0 404 Not Found');

@@ -15,31 +15,20 @@
 	<link href="/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
+
 <body>
-<nav class="navbar navbar-inverse navbar-fixed-top">
-	<div class="container">
-		<div class="navbar-header">
-			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
-			        aria-expanded="false" aria-controls="navbar">
-				<span class="sr-only">Toggle navigation</span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</button>
-			<a class="navbar-brand" href="#">Music festivals</a>
-		</div>
-		<div id="navbar" class="navbar-collapse collapse">
-			<form class="navbar-form navbar-right">
-				<div class="form-group">
-					<input type="text" placeholder="Email" class="form-control">
-				</div>
-				<div class="form-group">
-					<input type="password" placeholder="Password" class="form-control">
-				</div>
-				<button type="submit" class="btn btn-success">Sign in</button>
-			</form>
-		</div><!--/.navbar-collapse -->
-	</div>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Music Festivals <span class="glyphicon glyphicon-music" aria-hidden="true"></span></a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Home</a></li>
+      <li><a href="create.php">Tickets</a></li>
+    </ul>
+  </div>
+</nav>
+
 </nav>
 <!-- Main jumbotron for a primary marketing message or call to action -->
 <div class="jumbotron">
@@ -51,35 +40,42 @@
 	</div>
 </div>
 
-<table class="table table-bordered">
-  <thead class="thead-inverse">
-    <tr>
-      <th>Festival</th>
-      <th>City</th>
-      <th>Price</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-    </tr>
-  </tbody>
-</table>
-<button type="button" class="btn btn-info">Create new</button>
-<button type="button" class="btn btn-info">Update</button>
-<button type="button" class="btn btn-info">Delete</button>
+<div class="container">
+	<!-- Example row of columns -->
+	<div class="row">
+        <div class="col-md-12">
+				<h2>Festvials</h2>
+
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>City</th>
+                    <th>Price</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <?php foreach ($festivals as $festival): ?>
+                    <tr>
+                        <td><?= $festival['id'] ?></td>
+                        <td><?= $festival['name'] ?></td>
+                        <td><?= $festival['city'] ?></td>
+                        <td><?= $festival['price'] ?></td>
+                        <td>
+                            <a href="/update?id=<?= $festival['id'] ?>" title="Update"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
+                            <a href="/delete?id=<?= $festival['id'] ?>" title="Delete"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
+                        </td>
+                    </tr> 
+                <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+	</div>
+
+<hr>
+
 
 <div class="container">
 	<!-- Example row of columns -->

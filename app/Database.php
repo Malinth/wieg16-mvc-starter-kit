@@ -69,16 +69,32 @@ class Database {
 		$sql = "UPDATE $table SET (x=y...) WHERE id = :id";
 	}
 
-	/**
-	 * Skriv den här själv!
-	 * Titta på getById för struktur
-	 */
+/*
+	public function update($table, $id, $data) {
+		$columns = array_keys($data);
+
+		$sql = "UPDATE $table SET (x=y...) WHERE id = :id";
+		$stm = $this->pdo->prepare($sql);	
+				
+		foreach ($data as $key => $value) {
+			$stm->bindValue(':'.$key, $value);
+		}
+		$status = $stm->execute();
+
+		return ($status) ? $this->pdo->lastInsertId() : false;
+	}
+	}
+*/
+	  /**
+     * @param $table
+     * @param $id
+     * @return bool
+     */
+
 	public function delete($table, $id) {
 		$stm = $this->pdo->prepare('DELETE * FROM '.$table.' WHERE id = :id');
 		$stm->bindParam(':id', $id);
 		$success = $stm->execute();
-		$row = $stm->fetch(PDO::FETCH_ASSOC);
-		return ($success) ? $row : [];
+		return $success;
 	}
 }
-	

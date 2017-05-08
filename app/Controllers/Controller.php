@@ -30,3 +30,16 @@ class Controller {
 		$this->baseDir = $baseDir;
 	}
 
+public function createFestival($Musicfestival, $data) {
+		return $Musicfestival->create($data);
+	}
+
+    /**
+     * @param $Musicfestival
+     * @param $id
+     * @return mixed
+     */
+    public function deleteFestival($Musicfestival, $id) {
+        return $Musicfestival->delete($id);
+    }
+}
