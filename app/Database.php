@@ -92,9 +92,10 @@ class Database {
      */
 
 	public function delete($table, $id) {
-		$stm = $this->pdo->prepare('DELETE * FROM '.$table.' WHERE id = :id');
+		$stm = $this->pdo->prepare('DELETE FROM '.$table.' WHERE id = :id');
 		$stm->bindParam(':id', $id);
 		$success = $stm->execute();
 		return $success;
 	}
 }
+

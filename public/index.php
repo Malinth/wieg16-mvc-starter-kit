@@ -90,19 +90,14 @@ switch ($url) {
         ]);
 			header('Location: /?id='.$musicid);
 
-		//$recipeId = $recipeModel->create($_POST);
-		// Dirigera tillbaka till förstasidan efter att vi har sparat.
-		// Vi skickar med id:t på receptet som sparades för att kunna använda oss av det i vår vy.
 	break;
 		case '/update':
         require $baseDir.'/views/update.php';
 	break;
 		case '/delete':
 			$musicFestival = new Musicfestival($db);
-        	$musicid = $musicFestival->delete([
-				'id' => $_GET['id']
-				]);
-			header('Location: /?id='.$musicid);
+  			$success = $musicFestival->delete($_GET['id']);
+			header('Location: /');
 	break;
 	default:
 		header('HTTP/1.0 404 Not Found');
