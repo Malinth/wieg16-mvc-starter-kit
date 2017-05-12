@@ -80,7 +80,7 @@ switch ($url) {
 	break;
 		case '/create':
         require $baseDir.'/views/create.php';
-		  break;
+	break;
 		case '/create-festival': 
 			$musicFestival = new Musicfestival($db);
         	$musicid = $musicFestival->create([
@@ -89,17 +89,27 @@ switch ($url) {
             'price' => $_POST['price']
         ]);
 			header('Location: /?id='.$musicid);
-
 	break;
-		case '/update':
-        require $baseDir.'/views/update.php';
-	break;
+    	case '/update': 
+      	$musicFestival = new Musicfestival($db);
+        $musicfestival = $musicFestival->getById($_GET['id']);
+       	require $baseDir.'/views/update.php';
+    break;
+		case '/update-festival':
+        $musicFestival = new Musicfestival($db);
+        $newupdate = $musicFestival->update($_POST['id'], [ //Create tar en array av kolumner
+            'name' => $_POST['name'],
+            'city' => $_POST['city'],
+            'price' => $_POST['price']
+        ]);
+        header('Location: /?id='.$_POST['id']); 
+    break;
 		case '/delete':
 			$musicFestival = new Musicfestival($db);
   			$success = $musicFestival->delete($_GET['id']);
 			header('Location: /');
 	break;
-	default:
+		default:
 		header('HTTP/1.0 404 Not Found');
 		echo 'Page not found';
 	break;

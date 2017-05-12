@@ -1,3 +1,7 @@
+<?php
+/* @var $musicfestival */
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,7 +27,7 @@
     </div>
     <ul class="nav navbar-nav">
       <li class="active"><a href="#">Home</a></li>
-      <li><a href="create.php">Page 1</a></li>
+      <li><a href="#">Page 1</a></li>
     </ul>
   </div>
 </nav>
@@ -33,39 +37,37 @@
 	<div class="container">
 		<h1>Music festivals</h1>
 		<p>
-            Uppdatera information
+         Update information about the festivals
 		</p>
-		<p><a class="btn btn-primary btn-lg" href="#" role="button">More information &raquo;</a></p>
 	</div>
 </div>
 
-<table class="table table-bordered">
-  <thead class="thead-inverse">
-    <tr>
-      <th>Festival</th>
-      <th>City</th>
-      <th>Price</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-    </tr>
-  </tbody>
-</table>
-<button type="button" class="btn btn-info">Update</button>
+<div class="container">
+       <div class="col-md-6">
+
+         <h2>Update information about this music festvial</h2>
+            <!-- Musikformulär -->
+            <form action="/update-festival" method="post">
+                <div class="form-group">
+                  <input type="hidden" name="id" value="<?= $musicfestival['id']?>" class="form-control">
+                    <label>Name:</label>
+                    <input type="text" name="name" value="<?= $musicfestival['name']?>" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>City: </label>
+                    <input type="text" name="city" value="<?= $musicfestival['city']?>" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>Price: </label>
+                    <input type="text" name="price" value="<?= $musicfestival['price']?>" class="form-control">
+                </div>
+                <button type="submit" class="btn btn-info">Update</button>
+            </form>
+        </div>
+
+        <a href="/index" button type="button" class="btn btn-primary">Homepage</button></a>
+
+    </div>
 
 
 

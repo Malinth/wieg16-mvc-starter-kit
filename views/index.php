@@ -24,7 +24,7 @@
     </div>
     <ul class="nav navbar-nav">
       <li class="active"><a href="#">Home</a></li>
-      <li><a href="create.php">Tickets</a></li>
+      <li><a href="#">Tickets</a></li>
     </ul>
   </div>
 </nav>
@@ -73,6 +73,8 @@
             </table>
         </div>
 	</div>
+
+<a href="/create" button type="button" class="btn btn-primary">Create new festival here</button></a>
 
 <hr>
 

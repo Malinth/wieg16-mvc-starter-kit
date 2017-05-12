@@ -14,6 +14,9 @@ class Database {
 		$this->pdo = $pdo;
 	}
 
+
+/* Här är en funktion som hämtar id från tabellerna */
+
 	/**
 	 * @param integer $id
 	 * @return Model
@@ -26,12 +29,16 @@ class Database {
 		return ($success) ? $row : [];
 	}
 
+/* Här är en funktion som hämtar all data */
+
 	public function getAll($table) {
 		$stm = $this->pdo->prepare('SELECT * FROM '.$table);
 		$success = $stm->execute();
 		$rows = $stm->fetchAll(PDO::FETCH_ASSOC);
 		return ($success) ? $rows : [];
 	}
+
+	/* Här är en funktion som gör att jag kan skapa en ny festival */
 
 	public function create($table, $data) {
 		$columns = array_keys($data);
@@ -53,38 +60,53 @@ class Database {
 		return ($status) ? $this->pdo->lastInsertId() : false;
 	}
 
-	/**
-	 * ÖVERKURS
-	 *
-	 * Skriv den här själv!
-	 * Titta på create för strukturidéer
-	 * Du kan binda parametrar precis som i create
-	 * Klura ut hur du skall sätt ihop rätt textsträng för x=y...
-	 * Implode kommer inte ta dig hela vägen den här gången
-	 * Kanske array_map eller foreach?
-	 */
-	public function update($table, $id, $data) {
+/* Här är en funktion som gör att jag kan uppdatera informationen 
+
+		public function update($table, $id, $data) {
 		$columns = array_keys($data);
 
-		$sql = "UPDATE $table SET (x=y...) WHERE id = :id";
-	}
+		$columns = array_map(function($item) {
+		return $item.'=:'.$item;
+		}, $columns);
 
-/*
-	public function update($table, $id, $data) {
-		$columns = array_keys($data);
+		$bindingSql = implode(',:', $columns);
 
-		$sql = "UPDATE $table SET (x=y...) WHERE id = :id";
-		$stm = $this->pdo->prepare($sql);	
-				
+
+		$sql = "UPDATE $table SET $bindingSql WHERE `id` = :id";
+		$stm = $this->pdo->prepare($sql);
+		$data['id']= $id;
+		
+		
 		foreach ($data as $key => $value) {
 			$stm->bindValue(':'.$key, $value);
 		}
 		$status = $stm->execute();
+		return $status;
+		}
+		*/
 
-		return ($status) ? $this->pdo->lastInsertId() : false;
+	public function update($table, $id, $data) {
+        $keys = array_keys($data); //plockar ut nycklarna. Arraymap tar en array och tar element för element. Det som tas från array_map blir det nya värdet
+        //columns före
+        //['name', 'description'];
+        $keys = array_map(function($item) { //för varje steg blir $item nästa steg. Första gången name, andra gången description
+            return $item.'=:'.$item;
+        }, $keys);
+        //columns efter
+        //['name=:name', 'description=:description'];
+        $bindingSql = implode(',', $keys);  //implode: 'name=:name', 'description=:description'
+		$sql = "UPDATE $table SET $bindingSql WHERE id = :id";
+        $stm = $this->pdo->prepare($sql);
+        $data['id'] = $id;
+        foreach ($data as  $key => $value) {
+            $stm->bindValue(':'.$key, $value);
+        }
+        $status = $stm->execute();
+            return $status;
 	}
-	}
-*/
+
+/* Här är en funktion som gör att jag kan ta bort informationen */
+/* För att "visa" att det finns information att hämta */
 	  /**
      * @param $table
      * @param $id
@@ -98,4 +120,3 @@ class Database {
 		return $success;
 	}
 }
-

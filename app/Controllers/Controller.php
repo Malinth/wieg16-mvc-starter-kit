@@ -42,4 +42,8 @@ public function createFestival($Musicfestival, $data) {
     public function deleteFestival($Musicfestival, $id) {
         return $Musicfestival->delete($id);
     }
-}
+
+	public function updateFestival($Musicfestival, $data) {
+        return $Musicfestival->update($data);
+    }
+} 

@@ -28,7 +28,7 @@
     </div>
     <ul class="nav navbar-nav">
       <li class="active"><a href="#">Home</a></li>
-      <li><a href="create.php">Page 1</a></li>
+      <li><a href="#">Page 1</a></li>
     </ul>
   </div>
 </nav>
@@ -37,9 +37,8 @@
 <div class="jumbotron">
 	<div class="container">
 		<h1>Music festivals</h1>
-		<p>Information about prices are from the festival's original website.
+		<p>Here you can create a new festival to the list.
 		</p>
-		<p><a class="btn btn-primary btn-lg" href="#" role="button">More information &raquo;</a></p>
 	</div>
 </div>
 
