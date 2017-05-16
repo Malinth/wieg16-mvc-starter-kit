@@ -17,17 +17,20 @@
 
 	<!-- Bootstrap core CSS -->
 	<link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet/less" type="text/css" href="/css/styles.less" />
+
+    <script src="/js/less.js" type="text/javascript"></script>
 </head>
 
 <body>
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">Music Festivals <span class="glyphicon glyphicon-music" aria-hidden="true"></span></a>
+      <a class="navbar-brand" href="#">Music Festivals </a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Home</a></li>
-      <li><a href="#">Page 1</a></li>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Tickets</a></li>
     </ul>
   </div>
 </nav>
@@ -37,7 +40,7 @@
 	<div class="container">
 		<h1>Music festivals</h1>
 		<p>
-         Update information about the festivals
+         Update information about the festival
 		</p>
 	</div>
 </div>
@@ -45,7 +48,7 @@
 <div class="container">
        <div class="col-md-6">
 
-         <h2>Update information about this music festvial</h2>
+         <h2>Update information about this music festvial <span class="glyphicon glyphicon-music" aria-hidden="true"></span></h2>
             <!-- Musikformulär -->
             <form action="/update-festival" method="post">
                 <div class="form-group">
@@ -61,11 +64,12 @@
                     <label>Price: </label>
                     <input type="text" name="price" value="<?= $musicfestival['price']?>" class="form-control">
                 </div>
-                <button type="submit" class="btn btn-info">Update</button>
+                <button type="submit" class="btn btn-default">Update</button><br>
+                <button class="btn btn-default"><a href="/">Back to homepage</a> </button>
             </form>
         </div>
 
-        <a href="/index" button type="button" class="btn btn-primary">Homepage</button></a>
+
 
     </div>
 

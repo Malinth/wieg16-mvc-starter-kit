@@ -13,6 +13,11 @@
 
 	<!-- Bootstrap core CSS -->
 	<link href="/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet/less" type="text/css" href="/css/styles.less" />
+	
+	<script src="/js/less.js" type="text/javascript"></script>
+
 </head>
 
 
@@ -20,10 +25,10 @@
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">Music Festivals <span class="glyphicon glyphicon-music" aria-hidden="true"></span></a>
+      <a class="navbar-brand" href="#">Music Festivals</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Home</a></li>
+      <li><a href="#">Home</a></li>
       <li><a href="#">Tickets</a></li>
     </ul>
   </div>
@@ -33,10 +38,10 @@
 <!-- Main jumbotron for a primary marketing message or call to action -->
 <div class="jumbotron">
 	<div class="container">
-		<h1>Music festivals</h1>
+		<h1>Music festivals </h1>
 		<p>A music festival is a festival oriented towards music that is sometimes presented with a theme such as musical genre, nationality, or locality of musicians, or holiday. They are commonly held outdoors, and are often inclusive of other attractions such as food and merchandise vending, performance art, and social activities. Many festivals are annual, or repeat at some other interval. Some, including many rock festivals, are held only once. Some festivals are organized as for-profit concerts and others are benefits for a specific cause. Another type of music festival is the educative type, organized annually in local communities, regionally, or nationally, for the benefit of amateur musicians of all ages and grades of achievement.
 		</p>
-		<p><a class="btn btn-primary btn-lg" href="#" role="button">More information &raquo;</a></p>
+		<p><a class="btn btn-default btn-lg" href="#" role="button">More information &raquo;</a></p>
 	</div>
 </div>
 
@@ -44,7 +49,7 @@
 	<!-- Example row of columns -->
 	<div class="row">
         <div class="col-md-12">
-				<h2>Festvials</h2>
+				<h2>Festvials <span class="glyphicon glyphicon-music" aria-hidden="true"></span></h2>
 
             <table class="table">
                 <thead>
@@ -74,7 +79,7 @@
         </div>
 	</div>
 
-<a href="/create" button type="button" class="btn btn-primary">Create new festival here</button></a>
+<a href="/create" button type="button" class="btn btn-default">Create new festival here</button></a>
 
 <hr>
 
