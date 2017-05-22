@@ -30,20 +30,20 @@ class Controller {
 		$this->baseDir = $baseDir;
 	}
 
-public function createFestival($Musicfestival, $data) {
-		return $Musicfestival->create($data);
+public function createFestival($MusicFestival, $data) {
+		return $MusicFestival->create($data);
 	}
 
     /**
-     * @param $Musicfestival
+     * @param $MusicFestival
      * @param $id
      * @return mixed
      */
-    public function deleteFestival($Musicfestival, $id) {
-        return $Musicfestival->delete($id);
+    public function deleteFestival($MusicFestival, $id) {
+        return $MusicFestival->delete($id);
     }
 
-	public function updateFestival($Musicfestival, $data) {
-        return $Musicfestival->update($data);
+	public function updateFestival($MusicFestival, $data) {
+        return $MusicFestival->update($data);
     }
 } 

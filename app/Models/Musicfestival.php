@@ -3,6 +3,6 @@
 namespace App\Models;
 
 
-class Musicfestival extends Model {
-    protected $table = 'musicfestivals';
+class MusicFestival extends Model {
+    protected $table = 'music_festivals';
 }
